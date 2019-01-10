@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  frame_horizontal: MyString
+  frame_vertical: MyString
+  frame_gif: MyString
+
+two:
+  frame_horizontal: MyString
+  frame_vertical: MyString
+  frame_gif: MyString
