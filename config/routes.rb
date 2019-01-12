@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       resources :frames
       # resources :users, only: [:create, :update] do
       post '/login', to: 'auth#create'
-      get '/profile', to: 'users#profile'
+      get '/homepage', to: 'users#homepage'
       resources :users do
         resources :photos
         resources :photobooth_frame_sessions
