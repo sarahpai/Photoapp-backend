@@ -1,5 +1,5 @@
 class Api::V1::FramesController < ApplicationController
-	 before_action :find_frame, only: [:index, :show, :create]
+	 before_action :find_frame, only: [ :show, :create]
 	 
 	def index
 		@frames = Frame.all

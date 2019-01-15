@@ -7,10 +7,12 @@ class Api::V1::UsersController < ApplicationController
 		render json: @users
 	end
 
+
 	def homepage
 		render json: { user: UserSerializer.new(current_user()) }, status: :accepted
 	end
 
+	#POST /user
 	def create
 		@user = User.create(user_params)
 		if @user.valid?
