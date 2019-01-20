@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-	skip_before_action :authorized, only: [:create]
+	# skip_before_action :authorized, only: [:create]
 	# before_action :find_user, only: [:update, :edit]
 
 	def index
@@ -23,7 +23,9 @@ class Api::V1::UsersController < ApplicationController
 		end
 	end
 
-	
+	def show
+		
+	end
 
 	def update
 		@user.update(user_params)
@@ -41,9 +43,9 @@ class Api::V1::UsersController < ApplicationController
 		params.require(:user).permit(:username, :password, :email, :full_name)
 	end
 
-	def find_user
-		@user = User.find(params[:full_name, :email, :password, :username])
-	end
+	# def find_user
+	# 	@user = User.find(params[:full_name, :email, :password, :username])
+	# end
 
 end
 

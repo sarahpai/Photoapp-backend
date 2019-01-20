@@ -1,5 +1,5 @@
 class Api::V1::PhotosController < ApplicationController
-	before_action :find_photo, only: [:index]
+	before_action :find_photo, only: [:index, :show]
 
 	def index
 		@photos = Photo.all
@@ -12,10 +12,13 @@ class Api::V1::PhotosController < ApplicationController
 	end
 
 
+	def show 
+		render json: @photos
+	end
 	private
 
 	def photo_params
-		params.require(:photo).permit(:photobooth_session_id)
+		params.require(:photo).permit(:photo, :like, :user_id)
 	end
 
 	def find_photo

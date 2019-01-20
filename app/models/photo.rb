@@ -1,3 +1,3 @@
 class Photo < ApplicationRecord
-	belongs_to :photobooth_session
+	belongs_to :user
 end
