@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2019_01_09_220111) do
   enable_extension "plpgsql"
 
   create_table "photos", force: :cascade do |t|
-    t.string "photo", default: [], array: true
+    t.binary "photo", default: [], array: true
     t.integer "like"
     t.bigint "user_id"
     t.datetime "created_at", null: false
