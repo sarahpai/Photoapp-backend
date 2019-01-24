@@ -15,13 +15,13 @@ class Api::V1::PhotosController < ApplicationController
 		end
 	end
 
-	def prepare_json_image(file)
-		json = {}
-		json["filename"] = file.original_filename
-		json["content_type"] = file.content_type
-		json["data"] = Base64.encode64(File.read(file.path))
-		json
-	end
+	# def prepare_json_image(file)
+	# 	json = {}
+	# 	json["filename"] = file.original_filename
+	# 	json["content_type"] = file.content_type
+	# 	json["data"] = Base64.encode64(File.read(file.path))
+	# 	json
+	# end
 
 	def show 
 		render json: @photos
