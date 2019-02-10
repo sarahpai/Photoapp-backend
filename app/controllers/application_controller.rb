@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::API
-	before_action :authorized
+	before_action :authorized, except: [:new, :create]
    
-	def encode_token(payload)
+	def encode_token(payload) #{user_id: 1 }
 	  # should store secret in env variable
 	  JWT.encode(payload, ENV["jwt_secret"])
 	end
