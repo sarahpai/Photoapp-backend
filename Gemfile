@@ -47,3 +47,4 @@ gem "figaro"
 
 gem 'active_model_serializers'
 gem "jwt", "~> 2.1"
+gem 'carrierwave-postgresql'

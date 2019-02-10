@@ -17,12 +17,12 @@ class Api::V1::UsersController < ApplicationController
 	#POST /users
 	def create
 		@user = User.create!(user_params)
-		# if @user.save
-		# 	@user.save_attachments(user_params) if params[:user][:photo_data]
-		# 	render json: { user: UserSerializer.new(@user), jwt: @token}, status: :created
 		if @user.valid?
 			@token = encode_token(user_id: @user.id)
 			render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
+			# if @user.save
+			# 	@user.save_attachments(user_params) if params[:user][:photo]
+			# 	render json: { result: true, msg: ' The image is sucessfully uploaded!!'}, status: :created
 		else
 			render json: { error: 'Invalid username and password' }, status: :not_acceptable
 			end
@@ -43,7 +43,7 @@ class Api::V1::UsersController < ApplicationController
 	private 
 
 	def user_params
-		params.require(:user).permit(:username, :password, :email, :full_name, :photo_data => [])
+		params.require(:user).permit(:username, :password, :email, :full_name, :photo)
 	end
 
 	def find_user
